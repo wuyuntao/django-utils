@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head lang="zh">
+        <meta charset="UTF-8">
+
+        <title>{% block title %}{% endblock %}</title>
+
+        {% block css %}{% endblock %}
+
+    </head>
+
+    <body class="{% block body_class %}{% endblock%}">
+        {% block body %}
+            <section id="container" class="container">
+
+                <header>
+                    {% block header %}{% endblock %}
+                </header>
+
+                <article>
+                    {% block content %}{% endblock %}
+                </article>
+
+                <aside>
+                    {% block sidebar %}{% sidebar %}
+                </aside>
+
+                <footer>
+                    {% block footer %}{% endblock %}
+                </footer>
+
+            <section>
+        {% endblock %}
+
+        {% block js %}{% endblock %}
+
+    </body>
+
+</html>

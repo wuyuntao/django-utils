@@ -1,0 +1,5 @@
+#!/bin/bash
+
+git clone git://github.com/joshuaclayton/blueprint-css.git /tmp/blueprint
+cp /tmp/blueprint/blueprint $1 -rf
+rm /tmp/blueprint -rf
