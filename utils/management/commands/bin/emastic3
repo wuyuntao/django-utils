@@ -1,0 +1,5 @@
+#!/bin/bash
+
+git clone git://github.com/wuyuntao/emastic3.git /tmp/emastic3
+cp /tmp/emastic3/emastic3 $1 -rf
+rm /tmp/emastic3 -rf

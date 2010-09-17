@@ -13,7 +13,7 @@ from django.core.management.base import BaseCommand, CommandError
 class Command(BaseCommand):
     help = 'Import css and js frameworks'
 
-    CSS_FRAMEWORKS = ['blueprint']
+    CSS_FRAMEWORKS = ['blueprint', 'emastic3']
     JS_FRAMEWORKS = ['jquery', 'jqueryui']
     HTML_FRAMEWORKS = ['html', 'html5']
 
@@ -43,7 +43,7 @@ class Command(BaseCommand):
 
             css_path = '%s/%s' % (settings.MEDIA_ROOT, options['css_path'])
             self._makedirs(css_path)
-            if css == 'blueprint':
+            if css in ('blueprint', 'emastic3'):
                 cmd = shlex.split("%s/%s %s" % (self.BIN_PATH, css, css_path))
                 Popen(cmd, stdout=PIPE)
             else:
@@ -54,14 +54,9 @@ class Command(BaseCommand):
 
             js_path = '%s/%s/%s' % (settings.MEDIA_ROOT, options['js_path'], js)
             self._makedirs(js_path)
-            if js == 'jquery':
+            if js == ('jquery', 'jqueryui'):
                 cmd = shlex.split("%s/%s %s" % (self.BIN_PATH, js, js_path))
                 Popen(cmd, stdout=PIPE)
-
-            elif js == 'jqueryui':
-                cmd = shlex.split("%s/%s %s" % (self.BIN_PATH, js, js_path))
-                Popen(cmd, stdout=PIPE)
-
             else:
                 print "We do not support %s yet" % js
 
