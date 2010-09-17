@@ -54,7 +54,7 @@ class Command(BaseCommand):
 
             js_path = '%s/%s/%s' % (settings.MEDIA_ROOT, options['js_path'], js)
             self._makedirs(js_path)
-            if js == ('jquery', 'jqueryui'):
+            if js in ('jquery', 'jqueryui'):
                 cmd = shlex.split("%s/%s %s" % (self.BIN_PATH, js, js_path))
                 Popen(cmd, stdout=PIPE)
             else:
